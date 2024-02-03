@@ -74,8 +74,14 @@ while True:
     operation = input("Введите номер операции: ")
 
     if operation == '1':
-
-        user_cash = int(input("Введите сумму пополнения (для отмены операции введите 0): "))
+        type_check = False
+        while type_check == False:
+            try:
+                user_cash = int(input("Введите сумму пополнения (для отмены операции введите 0): "))
+                type_check = True
+            except ValueError:
+                print('При вводе суммы пополнения, необходимо указать числовое значение.')
+                print()
 
         if user_cash > 0:
             data_lines[3] = int(data_lines[3]) + user_cash
